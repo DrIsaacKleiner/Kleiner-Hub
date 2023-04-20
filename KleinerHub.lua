@@ -1,7 +1,7 @@
 -- Blox Fruit
 if game.PlaceId == 2753915549 then
     local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-    local Window = Library.CreateLib("Kleiner Hub - Blox Fruit", "Sentinel")
+    local Window = Library.CreateLib("Kleiner Hub - Blox Fruit V1", "Sentinel")
     local M = Window:NewTab("Main")
     local P = Window:NewTab("Player")
     local A = M:NewSection("Teleports only")
@@ -187,7 +187,7 @@ end
 -- Texting Simulator
 if game.PlaceId == 2580982329 then
     local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-    local Window = Library.CreateLib("Kleiner Hub - Texting Simulator", "Sentinel")
+    local Window = Library.CreateLib("Kleiner Hub - Texting Simulator V1", "Sentinel")
 
     --> Tabs and Sections <--
     local Inf = Window:NewTab("Information")
