@@ -1,2 +1,12 @@
-1- Added Versions (Current Version is V1)
-2- Added Tween Teleportation to bypass Blox Fruit's "Anti-Teleport"
+Current Version for Blox Fruit is V1.1
+Current Version for Texting Simulator is V1
+
+
+V1:
+1- Added versions.
+2- Added Tween Teleportation to bypass Blox Fruit's "Anti-Teleport".
+
+
+V1.1:
+1- Customized for Blox Fruit script.
+2- Fixed spelling mistakes.

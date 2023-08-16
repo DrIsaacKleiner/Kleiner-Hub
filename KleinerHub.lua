@@ -1,187 +1,103 @@
--- Blox Fruit
-if game.PlaceId == 2753915549 then
-    local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-    local Window = Library.CreateLib("Kleiner Hub - Blox Fruit V1", "Sentinel")
-    local M = Window:NewTab("Main")
-    local P = Window:NewTab("Player")
-    local A = M:NewSection("Teleports only")
-    local C = P:NewSection("Local Player")
-    A:NewButton("Blox Fruit Dealer", "BLOX FRUIT DEALER", function()
-        local bloxfruit_dealer = {
-            location = Vector3.new(-2708.57739, 23.2188244, 2105.34814, 0.707134247, 0, 0.707079291, 0, 1, 0, -0.707079291, 0, 0.707134247)
-        }
-        local tween_s = game:GetService('TweenService')
-        local tweeninfo = TweenInfo.new(1,Enum.EasingStyle.Linear)
+if game.PlaceId ~= 2753915549 then return end
 
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Kleiner Hub - Blox Fruit V1.1", "Sentinel")
+
+local BloxFruitLocations = {
+    ["Blox Fruit Dealer"] = CFrame.new(-2708.57739, 23.2188244, 2105.34814),
+    ["Sword Dealer"] = CFrame.new(-2538.47656, 5.28000069, 2026.87744),
+    ["Marine Boat Dealer"] = CFrame.new(-2478.57764, 3.55113912, 2003.34851),
+    ["Pirate Recruiter"] = CFrame.new(-2572.78687, 5.55691004, 2169.45557),
+    ["Marine Leader"] = CFrame.new(-2708.57739, 23.2188244, 2105.34814),
+    ["Marine Boat Dealer"] = CFrame.new(-2470.57764, 3.55113912, 2061.34863),
+    ["Advance Marines Boat Dealer"] = CFrame.new(-2504.02075, 3.55113912, 1869.35632),
+    ["Luxury Boat Dealer"] = CFrame.new(-2549.1001, 3.55113411, 1839.95825)
+}
+
+local Teleports = Window:NewTab("Teleports")
+for locationName, locationCFrame in pairs(BloxFruitLocations) do
+    Teleports:NewButton(locationName, "", function()
         local lp = game.Players.LocalPlayer
-
-        function bypass_teleport(v)
-            if lp.Character and
-            lp.Character:FindFirstChild('HumanoidRootPart') then
-                local cf = CFrame.new(v)
-                local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-                a:Play()
-            end
+        local hrp = lp.Character and lp.Character:FindFirstChild('HumanoidRootPart')
+        if hrp then
+            hrp.CFrame = locationCFrame
         end
-
-        bypass_teleport(bloxfruit_dealer.location)
-    end)
-    
-    A:NewButton("Sword Dealer", "SWORD DEALER", function()
-        local sword_dealer = {
-            location = Vector3.new(-2538.47656, 5.28000069, 2026.87744, -1, 0, 0, 0, 1, 0, 0, 0, -1)
-        }
-        local tween_s = game:GetService('TweenService')
-        local tweeninfo = TweenInfo.new(1,Enum.EasingStyle.Linear)
-
-        local lp = game.Players.LocalPlayer
-
-        function bypass_teleport(v)
-            if lp.Character and
-            lp.Character:FindFirstChild('HumanoidRootPart') then
-                local cf = CFrame.new(v)
-                local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-                a:Play()
-            end
-        end
-
-        bypass_teleport(sword_dealer.location)
-    end)
-    
-    A:NewButton("Marine Boat Dealer", "", function()
-        local marine_boat = {
-            location = Vector3.new(-2478.57764, 3.55113912, 2003.34851, -0.996191859, 0, -0.0871884301, 0, 1, 0, 0.0871884301, 0, -0.996191859)
-        }
-        local tween_s = game:GetService('TweenService')
-        local tweeninfo = TweenInfo.new(1,Enum.EasingStyle.Linear)
-
-        local lp = game.Players.LocalPlayer
-
-        function bypass_teleport(v)
-            if lp.Character and
-            lp.Character:FindFirstChild('HumanoidRootPart') then
-                local cf = CFrame.new(v)
-                local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-                a:Play()
-            end
-        end
-
-        bypass_teleport(marine_boat.location)
-    end)
-    
-    A:NewButton("Pirate Recruiter", "", function()
-        local pirate_recruiter = {
-            location = Vector3.new(-2572.78687, 5.55691004, 2169.45557, -0.819156051, 0, 0.573571265, 0, 1, 0, -0.573571265, 0, -0.819156051)
-        }
-        local tween_s = game:GetService('TweenService')
-        local tweeninfo = TweenInfo.new(1,Enum.EasingStyle.Linear)
-
-        local lp = game.Players.LocalPlayer
-
-        function bypass_teleport(v)
-            if lp.Character and
-            lp.Character:FindFirstChild('HumanoidRootPart') then
-                local cf = CFrame.new(v)
-                local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-                a:Play()
-            end
-        end
-
-        bypass_teleport(pirate_recruiter.location)
-    end)
-    
-    A:NewButton("Marine Leader", "", function()
-        local marine_leader = {
-            location = Vector3.new(-2708.57739, 23.2188244, 2105.34814, 0.707134247, 0, 0.707079291, 0, 1, 0, -0.707079291, 0, 0.707134247)
-        }
-        local tween_s = game:GetService('TweenService')
-        local tweeninfo = TweenInfo.new(1,Enum.EasingStyle.Linear)
-
-        local lp = game.Players.LocalPlayer
-
-        function bypass_teleport(v)
-            if lp.Character and
-            lp.Character:FindFirstChild('HumanoidRootPart') then
-                local cf = CFrame.new(v)
-                local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-                a:Play()
-            end
-        end
-
-        bypass_teleport(marine_leader.location)
-    end)
-    
-    A:NewButton("Marine Boat Dealer", "", function()
-        local marineboat_Dealer = {
-            location = Vector3.new(-2470.57764, 3.55113912, 2061.34863, 0.984812498, 0, 0.173621148, 0, 1, 0, -0.173621148, 0, 0.984812498)
-        }
-        local tween_s = game:GetService('TweenService')
-        local tweeninfo = TweenInfo.new(1,Enum.EasingStyle.Linear)
-
-        local lp = game.Players.LocalPlayer
-
-        function bypass_teleport(v)
-            if lp.Character and
-            lp.Character:FindFirstChild('HumanoidRootPart') then
-                local cf = CFrame.new(v)
-                local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-                a:Play()
-            end
-        end
-
-        bypass_teleport(marineboat_Dealer.location)
-    end)
-    
-    A:NewButton("Advance Marines Boat Dealer", "", function()
-        local advancemarineboat_dealer = {
-            location = Vector3.new(-2504.02075, 3.55113912, 1869.35632, 0.529884458, 0, 0.848069847, 0, 1, 0, -0.848069847, 0, 0.529884458)
-        }
-        local tween_s = game:GetService('TweenService')
-        local tweeninfo = TweenInfo.new(1,Enum.EasingStyle.Linear)
-
-        local lp = game.Players.LocalPlayer
-
-        function bypass_teleport(v)
-            if lp.Character and
-            lp.Character:FindFirstChild('HumanoidRootPart') then
-                local cf = CFrame.new(v)
-                local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-                a:Play()
-            end
-        end
-
-        bypass_teleport(advancemarineboat_dealer.location)
-    end)
-    
-    A:NewButton("Luxury Boat Dealer", "", function()
-        local luxury_boat_dealer = {
-            location = Vector3.new(-2549.1001, 3.55113411, 1839.95825, -0.642763734, 0, -0.766064942, 0, 1, 0, 0.766064942, 0, -0.642763734)
-        }
-        local tween_s = game:GetService('TweenService')
-        local tweeninfo = TweenInfo.new(1,Enum.EasingStyle.Linear)
-
-        local lp = game.Players.LocalPlayer
-
-        function bypass_teleport(v)
-            if lp.Character and
-            lp.Character:FindFirstChild('HumanoidRootPart') then
-                local cf = CFrame.new(v)
-                local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-                a:Play()
-            end
-        end
-
-        bypass_teleport(luxury_boat_dealer.location)
-    end)
-    
-    C:NewTextBox("Walkspeed", "", function(txt)
-        game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed = txt
-    end)
-    
-    C:NewTextBox("JumpPower", "", function(txt)
-        game:GetService("Players").LocalPlayer.Character.Humanoid.JumpPower = txt
     end)
 end
+
+local PlayerSection = Window:NewTab("Player")
+
+PlayerSection:NewTextBox("Walkspeed", "", function(txt)
+    local walkspeed = tonumber(txt)
+    if walkspeed then
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = walkspeed
+    end
+end)
+
+PlayerSection:NewTextBox("JumpPower", "", function(txt)
+    local jumpPower = tonumber(txt)
+    if jumpPower then
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = jumpPower
+    end
+end)
+
+local godModeEnabled = false
+PlayerSection:NewButton("Toggle God Mode", "", function()
+    godModeEnabled = not godModeEnabled
+    local lp = game.Players.LocalPlayer
+    local humanoid = lp.Character and lp.Character:FindFirstChild('Humanoid')
+    if godModeEnabled and humanoid then
+        humanoid.MaxHealth = math.huge
+    elseif not godModeEnabled and humanoid then
+        humanoid.MaxHealth = 100
+    end
+end)
+
+local regenRate = 0
+PlayerSection:NewSlider("Health Regen Rate", "", 0, 100, 10, function(val)
+    regenRate = val
+end)
+
+game:GetService("RunService").Heartbeat:Connect(function()
+    local lp = game.Players.LocalPlayer
+    local humanoid = lp.Character and lp.Character:FindFirstChild('Humanoid')
+    if humanoid and humanoid.Health + regenRate <= humanoid.MaxHealth then
+        humanoid.Health = humanoid.Health + regenRate
+    end
+end)
+
+local MiscSection = Window:NewTab("Misc")
+
+MiscSection:NewButton("Noclip", "", function()
+    game.Players.LocalPlayer.Character:FindFirstChild('Humanoid').Name = "1"
+    local l = game.Players.LocalPlayer.Character["1"]:Clone()
+    l.Parent = game.Players.LocalPlayer.Character
+    l.Name = "Humanoid"
+    wait(0.1)
+    game.Players.LocalPlayer.Character["1"]:Destroy()
+end)
+
+MiscSection:NewButton("Reset Character", "", function()
+    game.Players.LocalPlayer:LoadCharacter()
+end)
+
+local ObjectSection = Window:NewTab("Objects")
+ObjectSection:NewButton("Destroy Nearest Object", "", function()
+    local lp = game.Players.LocalPlayer
+    local closestDistance = math.huge
+    local closestObject = nil
+    
+    for _, obj in pairs(workspace:FindChildren()) do
+        if obj:IsA("BasePart") and (obj.Position - lp.Character.PrimaryPart.Position).Magnitude < closestDistance then
+            closestDistance = (obj.Position - lp.Character.PrimaryPart.Position).Magnitude
+            closestObject = obj
+        end
+    end
+
+    if closestObject then
+        closestObject:Destroy()
+    end
+end)
 
 
 -- Texting Simulator
@@ -193,10 +109,10 @@ if game.PlaceId == 2580982329 then
     local Inf = Window:NewTab("Information")
     local Section1 = Inf:NewSection("This hub was made by Dr. Isaac Kleiner#8979")
     local Autofarm  = Window:NewTab("Auto Farm")
-    local Section2 = Autofarm:NewSection("Kleiner Hub provides Super Auto Farms using")
-    local Section2P2 = Autofarm:NewSection("RenderStepped That fires one frame per millisecond.")
+    local Section2 = Autofarm:NewSection("Kleiner Hub provides intelligent auto farms using")
+    local Section2P2 = Autofarm:NewSection("RenderStepped that fires one frame per millisecond.")
 
-    Section2P2:NewToggle("Auto Farm (REJOIN TO STOP AUTOFARM)", "Fires every millisecond per frame", function(state)
+    Section2P2:NewToggle("Auto Farm (REJOIN TO STOP AUTOFARM)", "Fires one frame per millisecond", function(state)
         getgenv().Farm = true;
         if getgenv().Farm == true then
             while game:GetService("RunService").RenderStepped:Wait() do
