@@ -7,6 +7,6 @@ V1:
 2- Added Tween Teleportation to bypass Blox Fruit's "Anti-Teleport".
 
 
-V1.1:
+V1.1 (REVERTED):
 1- Customized for Blox Fruit script.
 2- Fixed spelling mistakes.
